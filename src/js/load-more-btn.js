@@ -16,10 +16,7 @@ export default class LoadMoreBtn {
     enable() {
       this.refs.button.disabled = false;
       this.refs.label.textContent = 'Показать ещё';
-      this.refs.button.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end',
-      });
+      
     }
   
     disable() {
@@ -30,9 +27,13 @@ export default class LoadMoreBtn {
   
     show() {
       this.refs.button.classList.remove('is-hidden');
+      
     }
   
     hide() {
       this.refs.button.classList.add('is-hidden');
     }
   }
+
+  
+  

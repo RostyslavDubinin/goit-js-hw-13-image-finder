@@ -36,6 +36,8 @@ function onSearch(e) {
   imgApiService.resetPage();
   clearImgContainer();
   fetchImg();
+
+
 }
 
 function fetchImg() {
@@ -53,3 +55,8 @@ function appendImgMarkup(hits) {
 function clearImgContainer() {
   refs.imgContainer.innerHTML = '';
 }
+
+
+
+
+  
