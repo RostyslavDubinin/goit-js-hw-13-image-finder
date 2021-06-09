@@ -13,7 +13,7 @@ const loadMoreBtn = new LoadMoreBtn({
   hidden: true,
 });
 
-console.log(loadMoreBtn);
+
 
 
 const imgApiService = new ApiService();
@@ -27,11 +27,11 @@ function onSearch(e) {
   e.preventDefault();
 
   imgApiService.query = e.currentTarget.elements.query.value;
-
+  
   if (imgApiService.query === '' ||  imgApiService.query === ' ') {
     return alert('Too many matches found. Please enter a more specific query!');
   }
-
+  
   loadMoreBtn.show();
   imgApiService.resetPage();
   clearImgContainer();
@@ -42,10 +42,16 @@ function onSearch(e) {
 
 function fetchImg() {
   loadMoreBtn.disable();
+  
   imgApiService.fetchImg().then(hits => {
     appendImgMarkup(hits);
     loadMoreBtn.enable();
+   
+    const categoriesFirstLi = Array.from(document.querySelector('.gallery').children);
+    categoriesFirstLi[(categoriesFirstLi.length-12)].scrollIntoView({block: "start", behavior: "smooth"});
+    
   });
+  
 }
 
 function appendImgMarkup(hits) {
